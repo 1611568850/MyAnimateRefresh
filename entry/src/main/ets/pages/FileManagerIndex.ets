@@ -49,6 +49,13 @@ export default struct FileManagerIndex {
             RefreshComponent({
                 headerStyle: RefreshHeaderStyle.CLOUD,
                 itemLayout: (): void => this.ContentBody(),
+                displayHeight: (
+                    px2vp(this.deviceDisplay.height) - DimensionUtil.getVp($r('app.float.file_index_title_height'))),
+                // onRefresh: () => {
+                //     setTimeout(() => {
+                //         this.state = RefreshState.COMPLETE;
+                //     }, CommonConstants.REFRESH_DEFAULT_TIMEOUT);
+                // }
             })
                 .width(CommonConstants.FULL_LENGTH)
                 .margin({ top: DimensionUtil.getVp($r('app.float.file_index_title_height')) })

@@ -21,8 +21,19 @@ export default struct RefreshAnimHeader {
             .width(px2vp(DimensionUtil.adaptDimension(this.iconWidth)))
             .position({ x: iconItem.posX })
             .objectFit(ImageFit.Contain)
-            .borderRadius(10)
-            .backgroundColor(Color.Blue)
+            .animation({
+                duration: CommonConstants.REFRESH_HEADER_ITEM_ANIM_DURATION,
+                tempo: CommonConstants.REFRESH_HEADER_ITEM_ANIM_TEMPO,
+                delay: iconItem.delay,
+                curve: Curve.Linear,
+                playMode: PlayMode.Alternate,
+                iterations: CommonConstants.REFRESH_HEADER_ITEM_ANIM_ITERATIONS
+            })
+            .border({
+                color: Color.Red,
+                style: BorderStyle.Dotted,
+                width:1
+            })
     }
 
     build() {
